@@ -90,6 +90,11 @@ public abstract class Animal{
         this.isAlive = false;
     }
 
+    public boolean checkCollision(Animal animal){
+        // Checando se a coordenada dos dois animais são iguais
+        return animal.getX() == this.getX() && animal.getY() == this.getY();
+    }
+
     public void setCoords(int x, int y){
         this.x = x;
         this.y = y;

@@ -55,15 +55,26 @@ public class Game {
     public void updateFR(){
 
         for (Fox fox : foxArray){
-            table[fox.getX()][fox.getY()] = ConsoleColors.GREEN + "-";
-            fox.walk(20, 20);
-            table[fox.getX()][fox.getY()] =  ConsoleColors.YELLOW_BOLD +"F";
+            if(fox.isAlive()){
+                table[fox.getX()][fox.getY()] = ConsoleColors.GREEN + "-";
+                fox.walk(20, 20);
+                table[fox.getX()][fox.getY()] =  ConsoleColors.YELLOW_BOLD +"F";
+            }
+            else{
+                table[fox.getX()][fox.getY()] = ConsoleColors.GREEN + "-";
+                foxArray.remove(fox);
+            }
         }
 
         for (Rabbit rabbit : rabbitArray){
-            table[rabbit.getX()][rabbit.getY()] = ConsoleColors.GREEN + "-";
-            rabbit.walk(20,20);
-            table[rabbit.getX()][rabbit.getY()] = ConsoleColors.WHITE_BOLD + "R";
+            if(rabbit.isAlive()){
+                table[rabbit.getX()][rabbit.getY()] = ConsoleColors.GREEN + "-";
+                rabbit.walk(20,20);
+                table[rabbit.getX()][rabbit.getY()] = ConsoleColors.WHITE_BOLD + "R";
+            } else{
+                table[rabbit.getX()][rabbit.getY()] = ConsoleColors.GREEN + "-";
+                rabbitArray.remove(rabbit);
+            }
         }
     }
 
